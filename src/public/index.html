@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          'sans': 'Poppins, sans-serif'
+        },
+        extend: {
+
+          colors: {
+            primary: {
+              50: '#ece9ff',
+              100: '#c5bff7',
+              200: '#9f94eb',
+              300: '#7869e2',
+              400: '#523fd9',
+              500: '#3925bf',
+              600: '#2b1d96',
+              700: '#1e156c',
+              800: '#120b43',
+              900: '#06031b',
+              },
+          }
+        }
+      }
+    }
+  </script>
+
+  <title>Wisewallet - API</title>
+</head>
+
+<body class="bg-zinc-800">
+  <div class="container mx-auto mt-5 bg-zinc-900 text-zinc-300 p-5 rounded drop-shadow-md">
+
+    <div class="flex items-center justify-between">
+      <p class="text-xl">
+        REST API
+      </p>
+      <p>
+        Desenvolvido por
+        <a href="https://github.com/Quinhas" class="text-decoration-none text-primary-200 hover:text-primary-300 transition-colors" target="_blank">Lucas Santana</a>.
+      </p>
+    </div>
+
+    <h1 class="text-5xl mt-8 flex items-center gap-2">
+      <i class="ph-wallet-bold text-primary-300"></i>
+      Wisewallet
+    </h1>
+    <hr class="my-4" />
+    <div class="flex gap-2">
+      <a class="border border-primary-300 p-2 rounded flex items-center gap-2 hover:bg-primary-300 transition-colors" href="https://github.com/Quinhas/wisewallet-api" role="button" target="_blank">
+        <i class="ph-github-logo-fill"></i>
+        <span>Repositório</span>
+      </a>
+      <a class="border border-primary-300 p-2 rounded flex items-center gap-2 hover:bg-primary-300 transition-colors" href="https://discordapp.com/users/302585910363684864/" role="button" target="_blank">
+        <i class="ph-discord-logo-fill"></i>
+        <span>Discord</span>
+      </a>
+      <a class="border border-primary-300 p-2 rounded flex items-center gap-2 hover:bg-primary-300 transition-colors" href="https://www.linkedin.com/in/lucas-santana-bb033120a/" role="button" target="_blank">
+        <i class="ph-linkedin-logo-fill"></i>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>

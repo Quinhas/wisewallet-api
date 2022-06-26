@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id           Int            @unique @default(autoincrement())
+  name         String         @db.VarChar(50)
+  created_at   DateTime       @default(now()) @db.Timestamp(6)
+  updated_at   DateTime       @updatedAt @db.Timestamp(6)
+  transactions transactions[]
+}
+
+model transactions {
+  id               String           @id(map: "pk_transactions") @db.Uuid
+  user_id          String           @db.Uuid
+  title            String           @db.VarChar(60)
+  date             DateTime         @db.Timestamp(6)
+  type             Int
+  value            Decimal          @db.Decimal(10, 2)
+  account          String?          @db.Uuid
+  category_id      Int?
+  created_at       DateTime         @default(now()) @db.Timestamp(6)
+  updated_at       DateTime         @updatedAt @db.Timestamp(6)
+  categories       categories?      @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_transactions_categories")
+  transactiontypes transactiontypes @relation(fields: [type], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_transactions_transactiontype")
+  users            users            @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_transactions_users")
+}
+
+model transactiontypes {
+  id           Int            @id(map: "pk_transactiontypes") @default(autoincrement())
+  name         String         @db.VarChar(50)
+  created_at   DateTime       @default(now()) @db.Timestamp(6)
+  updated_at   DateTime       @updatedAt @db.Timestamp(6)
+  transactions transactions[]
+}
+
+model users {
+  id           String         @id(map: "pk_users") @default(uuid()) @db.Uuid
+  name         String         @db.VarChar(40)
+  email        String         @unique @db.VarChar(60)
+  password     String         @db.VarChar(80)
+  birthdate    DateTime       @db.Date
+  created_at   DateTime       @default(now()) @db.Timestamp(6)
+  updated_at   DateTime       @updatedAt @db.Timestamp(6)
+  transactions transactions[]
+}
